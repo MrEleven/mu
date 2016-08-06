@@ -1,0 +1,44 @@
+<!Doctype>
+<html>
+	<head lang="en">
+		<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telephone=no">
+		<title>app下载</title>
+		<style type="text/css">
+		* {
+			margin: 0px;
+			padding: 0px;
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		}
+		a {
+			color: black;
+			text-decoration: underline;
+		}
+		a:hover {
+			color: black;
+		}
+		a:visited {
+			color: black;
+		}
+		h1 {
+			text-align: center;
+		}
+		#download_wrap {
+			position: fixed;
+			top: 50%;
+			height: 5em;
+			width: 100%;
+			margin-top: -2.5em;
+			text-align: center;
+			font-weight: bolder;
+			font-size: 2.5em;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="download_wrap">
+			<a id="download_href" href="itms-services://?action=download-manifest&url=https://mreleven.oss-cn-hangzhou.aliyuncs.com/unicorn/plist/{{result.get("appname", "")}}.plist" target="_blank">下载"{{result.get("appname_cn", "")}}"</a>
+		</div>
+	</body>
+</html>
