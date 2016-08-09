@@ -23,7 +23,7 @@ var vm = avalon.define({
             vm.$load();
         });
     },
-    $remove: function () {
+    $fork: function () {
         console.log("start delete")
         var replyid = $(this).attr("replyid");
         $.post("/delete", {"replyid": replyid}, function (data) {
