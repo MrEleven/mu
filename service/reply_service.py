@@ -22,6 +22,23 @@ class ReplyService(object):
         reply_template = """<xml><ToUserName><![CDATA[%s]]></ToUserName><FromUserName><![CDATA[%s]]></FromUserName><CreateTime>%s</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[%s]]></Content></xml>"""
         create_time = int(time.time())
         return reply_template % (to_utf8(to_user), to_utf8(from_user), to_utf8(create_time), to_utf8(content))
+
+    def get_reply_list(self, keyword=""):
+        data = reply_dao.get_reply_list(keyword)
+        result = []
+        for d in data:
+            reply_info = {"replyid": d[0], "keyword": d[1], "content": d[2]}
+            result.append(reply_info)
+        return result
+
+    def add_reply(self, keyword, content):
+        return reply_dao.add_reply(keyword, content)
+
+    def delete_reply(self, replyid):
+        return reply_dao.delete_reply(replyid)
+
+    def update_reply(self, replyid, keyword, content):
+        return reply_dao.update_reply(replyid, keyword, content)
     
 reply_service = ReplyService()
         
