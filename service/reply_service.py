@@ -18,7 +18,7 @@ class ReplyService(object):
     def get_reply_msg(self, to_user, from_user, user_msg):
         content = self.get_reply_info(user_msg)
         if not content:
-            return "八戒，师傅被黑山老妖抓走啦！木木等等就肥来，回复你！"
+            content = "八戒，师傅被黑山老妖抓走啦！木木等等就肥来，回复你！"
         reply_template = """<xml><ToUserName><![CDATA[%s]]></ToUserName><FromUserName><![CDATA[%s]]></FromUserName><CreateTime>%s</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[%s]]></Content></xml>"""
         create_time = int(time.time())
         return reply_template % (to_utf8(to_user), to_utf8(from_user), to_utf8(create_time), to_utf8(content))
