@@ -37,15 +37,15 @@ class DBExecuter(object):
     def execute(self, sql, params=None):
         try:
             if params:
-                self.cursor.execute(sql, params)
+                return self.cursor.execute(sql, params)
             else:
-                self.cursor.execute(sql)
+                return self.cursor.execute(sql)
         except MySQLdb.OperationalError:
             self._reconnect()
             if params:
-                self.cursor.execute(sql, params)
+                return self.cursor.execute(sql, params)
             else:
-                self.cursor.execute(sql)
+                return self.cursor.execute(sql)
 
     def fetchall(self):
         return self.cursor.fetchall()
